@@ -1,0 +1,33 @@
+import React, {useState} from 'react'
+
+/**
+* @author
+* @function 
+**/
+
+function HookCounter4() {
+    const [items, setItems] = useState([])
+    const addItem = () => {
+        setItems(prevItems => [...prevItems, 
+            {
+                id: prevItems.length,
+                value: Math.floor(Math.random() * 10) + 1
+            }
+        ])
+    }
+  return(
+    <div>
+        <button onClick={addItem}>Add a number</button>
+        <ul>
+            {
+                items.map(item => (
+                    <li key={item.id}>{item.value}</li>
+                ))
+            }
+        </ul>
+    </div>
+   )
+
+ }
+
+ export default HookCounter4
